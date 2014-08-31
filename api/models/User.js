@@ -10,6 +10,9 @@ module.exports = {
     attributes: {
         email: { type: 'String', unique: true},
         displayName: { type: 'String' },
+        firstName: { type: 'String' },
+        lastName: { type: 'String' },
+        picture: { type: 'String' },
         facebook: { type: 'String' },
         foursquare: { type: 'String' },
         google: { type: 'String' },

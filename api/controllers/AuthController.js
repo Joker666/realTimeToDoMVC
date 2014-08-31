@@ -40,41 +40,44 @@ module.exports = {
 
                         var token = req.headers.authorization.split(' ')[1];
                         var userID;
-                        sailsTokenAuth.verifyToken(token, function(err, decoded) {
+                        TokenService.verifyToken(token, function(err, decoded) {
                             if (err) return res.json(401, { err: 'The token is not valid' });
 
                             userID = decoded;
 
                             next();
                         });
-
-                        User.findById(userID, function(err, user) {
-                            if (!user) {
-                                return res.status(400).send({ message: 'User not found' });
-                            }
-                            user.google = profile.sub;
-                            user.displayName = user.displayName || profile.name;
-                            user.save(function(err) {
-                                res.send({ token: sailsTokenAuth.issueToken(user.id) });
-                            });
+                        User.update(userID, {
+                            google: profile.sub,
+                            displayName : displayName || profile.name
+                        }, function userUpdated(err, updated) {
+                            console.log(updated[0].displayName + ' user updated');
+                            res.send({ token: TokenService.issueToken(updated[0].id) });
                         });
                     });
                 } else {
                     // Step 3b. Create a new user account or return an existing one.
                     User.findOne({ google: profile.sub }, function(err, existingUser) {
                         if (existingUser) {
-                            return res.send({ token: sailsTokenAuth.issueToken(existingUser.id) });
+                            console.log('existing user id' + existingUser.displayName);
+                            res.json({user: user, token: TokenService.issueToken({sid: user.id})});
                         }
                         User.create({
                             google: profile.sub,
-                            displayName: profile.name
+                            displayName: profile.name,
+                            firstName: profile.given_name,
+                            lastName: profile.family_name,
+                            picture: profile.picture,
+                            email: profile.email
                         }, function userCreated(err, user){
-                            res.send({ token: sailsTokenAuth.issueToken(user.id) });
+                            console.log('new user id' + user.id);
+                            res.json({user: user, token: TokenService.issueToken({sid: user.id})});
                         });
                     });
                 }
             });
         });
+
     }
 };
 
