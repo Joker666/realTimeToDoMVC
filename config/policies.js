@@ -29,6 +29,12 @@ module.exports.policies = {
    '*': true,
    'UserController': {
       'me': ['tokenAuth'],
+      'add': ['tokenAuth', 'ownAssociations'],
+      'create': true,
+      'findOne': ['tokenAuth', 'ownUser'],
+      'update': ['tokenAuth', 'ownAssociations'],
+      'populate': ['tokenAuth', 'ownAssociations'],
+      'remove': ['tokenAuth', 'ownAssociations'],
       '*': false
    }
 

@@ -34,7 +34,11 @@ module.exports.routes = {
 
   '/': {
     view: 'homepage'
-  }
+  },
+  'get /user/me': 'UserController.me',
+  'post /auth/google': 'AuthController.google',
+  // 'delete /user/:parentid/todos/:id': 'UserController.remove'
+  // 'delete /user/:parentid/todos/:id': 'TodoController.destroy'
 
   /***************************************************************************
   *                                                                          *

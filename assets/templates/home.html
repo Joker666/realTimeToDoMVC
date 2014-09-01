@@ -2,3 +2,9 @@
 <button ng-click="logout()">Logout</button>
 <p>{{ user.email }}</p>
 <p>{{ user.displayName }}</p>
+<div>
+	<input ui-keypress="{13:'createNewTodo($event)'}" type="text" placeholder='Create New Todo' ng-model='todo.new'>
+</div>
+<section id='todo' ng-repeat="todo in todos">
+	Done?<input type="checkbox" ng-model="todo.done" ng-change='doneToDo($index, todo.id, todo.done)'> -- {{ todo.description }} ----- <span ng-click="removeToDo($index, todo.id)">x</span>
+</section>

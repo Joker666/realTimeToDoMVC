@@ -6,6 +6,13 @@
  */
 
 module.exports = {
-	
+	// 'remove': function(req, res) {
+	//     // var relation = req.options.alias;
+	//     // switch (relation) {
+	//     //   case 'messages':
+	//     //     destroyMessage(req, res);
+	//     // }
+	//     console.log(req.options);
+ //  	}
 };
 

@@ -59,8 +59,8 @@ module.exports = {
                     // Step 3b. Create a new user account or return an existing one.
                     User.findOne({ google: profile.sub }, function(err, existingUser) {
                         if (existingUser) {
-                            console.log('existing user id' + existingUser.displayName);
-                            res.json({user: user, token: TokenService.issueToken({sid: user.id})});
+                            console.log('existing user ' + existingUser.displayName);
+                            return res.json({user: existingUser, token: TokenService.issueToken({sid: existingUser.id})});
                         }
                         User.create({
                             google: profile.sub,

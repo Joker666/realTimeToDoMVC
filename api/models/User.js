@@ -19,6 +19,10 @@ module.exports = {
         github: { type: 'String' },
         linkedin: { type: 'String' },
         twitter: { type: 'String' },
+        todos: {
+          collection: 'todo',
+          via: 'user'
+        },
     }
 };
 

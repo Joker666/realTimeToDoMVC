@@ -6,8 +6,13 @@
 */
 
 module.exports = {
-
+  schema: true,
   attributes: {
+  	description: { type: 'STRING' },
+  	done: { type: 'BOOLEAN' },
+  	user: {
+  	  model: 'user'
+  	}
 
   }
 };
