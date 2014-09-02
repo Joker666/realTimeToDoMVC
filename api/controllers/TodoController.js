@@ -6,13 +6,13 @@
  */
 
 module.exports = {
-	// 'remove': function(req, res) {
-	//     // var relation = req.options.alias;
-	//     // switch (relation) {
-	//     //   case 'messages':
-	//     //     destroyMessage(req, res);
-	//     // }
-	//     console.log(req.options);
- //  	}
+ 	subscribe: function(req, res){
+ 	  Todo.find({}).exec(function foundTodos(err, todos){
+ 	    if(err) return next(err);
+ 	    Todo.watch(req.socket);
+ 	    Todo.subscribe(req.socket, todos);
+ 	    res.send(200);
+ 	  });
+ 	}
 };
 

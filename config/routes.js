@@ -37,6 +37,8 @@ module.exports.routes = {
   },
   'get /user/me': 'UserController.me',
   'post /auth/google': 'AuthController.google',
+  'get /todo/subscribe': 'TodoController.subscribe',
+  'get /user/subscribe': 'UserController.subscribe',
   // 'delete /user/:parentid/todos/:id': 'UserController.remove'
   // 'delete /user/:parentid/todos/:id': 'TodoController.destroy'
 

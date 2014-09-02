@@ -11,6 +11,16 @@ module.exports = {
 			res.send(user);
 		});
 	},
+
+
+	subscribe: function(req, res){
+	  User.find({}).exec(function foundTodos(err, users){
+	    if(err) return next(err);
+	    User.watch(req.socket);
+	    User.subscribe(req.socket, users);
+	    res.send(200);
+	  });
+	}
 	// Doing a DELETE /user/:parentid/message/:id will not delete the message itself
 	  // We do that here.
 	// 'remove': function(req, res) {

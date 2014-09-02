@@ -17,5 +17,5 @@ app.run(function($rootScope, $state, Auth) {
             event.preventDefault();
             $state.go('login');
         }
-    })
+    });
 });

@@ -31,6 +31,7 @@ module.exports.policies = {
       'me': ['tokenAuth'],
       'add': ['tokenAuth', 'ownAssociations'],
       'create': true,
+      'subscribe': true,
       'findOne': ['tokenAuth', 'ownUser'],
       'update': ['tokenAuth', 'ownAssociations'],
       'populate': ['tokenAuth', 'ownAssociations'],
