@@ -12,6 +12,18 @@ body{
     background: antiquewhite;
 }
 
-#todo{
-	background: limegreen;
+#todo-list{
+	li.done label{
+		background: limegreen;
+		text-decoration: line-through;
+	}
+	li.editing .edit {
+		display: block;
+	}
+	li.editing .view {
+		display: none;
+	}
+    li .edit {
+		display: none;
+	}
 }

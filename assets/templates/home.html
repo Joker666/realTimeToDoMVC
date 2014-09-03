@@ -11,7 +11,16 @@
 	<strong>{{remainingCount}}</strong>
 	<ng-pluralize count="remainingCount" when="{ one: 'item left', other: 'items left' }"></ng-pluralize>
 </span>
-<section id='todo' ng-repeat="todo in todos">
-	Done?<input type="checkbox" ng-model="todo.done" ng-change='doneToDo($index, todo.id, todo.done)'> -- {{ todo.description }} ----- <span ng-click="removeToDo($index, todo.id)">x</span>
-</section>
-<button ng-click="clearCompletedTodos()">Clear Completed Todos ({{completedCount}})</button>
+<ul id="todo-list">
+	<li ng-repeat="todo in todos" ng-class="{done: todo.done, editing: todo == editedTodo}">
+		<section class='view'>
+			<input class="toggle" type="checkbox" ng-model="todo.done" ng-change="doneToDo($index, todo.id, todo.done)">
+			<label ng-dblclick="editTodo(todo)">{{ todo.description }}</label>
+			<button class="destroy" ng-click="removeToDo($index, todo.id)">X</button>
+		</section>
+		<form ng-submit="doneEditing(todo)">
+			<input class="edit" ng-model="todo.description" ng-blur="doneEditing(todo)" todo-escape="revertEditing($index)" todo-focus="todo == editedTodo">
+		</form>
+	</li>
+</ul>
+<button ng-click="clearCompletedTodos()" ng-show="completedCount">Clear Completed Todos ({{completedCount}})</button>

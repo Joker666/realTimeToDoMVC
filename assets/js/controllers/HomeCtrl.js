@@ -25,9 +25,16 @@ app.controller('HomeCtrl', function($scope, $auth, $state, $filter, Account, Cur
                 $scope.$apply();
                 break;
             case 'updated':
+                console.log(msg.data);
                 var haveToUpdate = _.find($scope.todos, { 'id': msg.id });
-                if(msg.data.done !== haveToUpdate.done){
-                    haveToUpdate.done = msg.data.done;
+                if(angular.isDefined(msg.data.done)){
+                  if(msg.data.done !== haveToUpdate.done){
+                      haveToUpdate.done = msg.data.done;
+                  }
+                } else if (angular.isDefined(msg.data.description)){
+                  if(msg.data.description !== haveToUpdate.description){
+                      haveToUpdate.description = msg.data.description;
+                  }
                 }
                 $scope.$apply();
                 break;
@@ -79,5 +86,25 @@ app.controller('HomeCtrl', function($scope, $auth, $state, $filter, Account, Cur
         todo.done = !allChecked;
         TodoService.update(todo.id, null, todo.done).success(function(result) {});
       });
+    };
+
+    $scope.editTodo = function (todo) {
+      $scope.editedTodo = todo;
+      $scope.originalTodo = angular.extend({}, todo);
+    };
+
+
+    $scope.doneEditing = function (todo) {
+      $scope.editedTodo = null;
+      if (todo.description) {
+        TodoService.update(todo.id, todo.description, null).success(function(result) {});
+      } else {
+        TodoService.remove(todo.id).success(function(result) {});
+      }
+    };
+
+    $scope.revertEditing = function (index) {
+      angular.extend($scope.todos[index], $scope.originalTodo);
+      $scope.editedTodo = null;
     };
 })
