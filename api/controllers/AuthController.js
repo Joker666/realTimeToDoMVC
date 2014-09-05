@@ -15,7 +15,7 @@ module.exports = {
         var params = {
             client_id: req.body.clientId,
             redirect_uri: req.body.redirectUri,
-            //client_secret: config.secrets.GOOGLE_SECRET,
+            // client_secret: sails.config.local,
             client_secret: 'oiTGCZkWUWfpTxURl_cRkJoC',
             code: req.body.code,
             grant_type: 'authorization_code'

@@ -58,11 +58,12 @@ module.exports.connections = {
   ***************************************************************************/
   mongo: {
     adapter: 'sails-mongo',
-    host: 'localhost',
-    port: 27017,
+    // host: 'localhost',
+    // port: 27017,
     // user: 'username',
     // password: 'password',
-     database: 'todoMVC'
+     // database: 'todoMVC'
+     url: "mongodb://root:root@ds035250.mongolab.com:35250/sails_realtime_todo_mvc"
   },
 
   /***************************************************************************
