@@ -1,5 +1,8 @@
 @import "susy";
-
+@import url(http://fonts.googleapis.com/css?family=Titillium+Web:400,600,300);
+* {
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 1.1rem; }
 $susy:(
         columns: 24,
         gutters: 1/4,
@@ -11,10 +14,132 @@ body{
     @include container(100%);
     background: antiquewhite;
 }
+a {
+  text-decoration: none; }
+button#logout{
+  float: right;
+  margin-right: 7px;
+  background-color: #009ac9;
+  border: 2px solid transparent;
+  color: #ffffff;
+  font-weight: 300;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  &:hover{
+      background-color: antiquewhite;
+      cursor: pointer;
+      color: #009ac9;
+      border-color: #009ac9;
+  }
+}
+#wrapper{
+  margin-top: 1%;
+  position: absolute;
+  width: span(11);
+  left: 28%;
+//  border: 1px blue solid;
+  .user-info {
+    img{
+      @include span(isolate 6 at 10);
+      border-radius: 50%;
+      border: 2px #ffffff solid;
+    }
+    p{
+      @include span(isolate 6 at 10);
+      text-align: center;
+      margin-top: 25%;
+    }
+  }
+  .todo-input{
+    input{
+      margin-top: 31%;
+      @include span(23);
+      margin-left:2%;
+    }
+    input[type="text"] {
+      -webkit-appearance:none;
+      background-color:tomato;
+      border:none;
+      height:100px;
+      text-align:center;
+      font-size:30px;
+      box-sizing:border-box;
+      border:0px solid black;
+      transition:background-color 1s;
+      transition:border 1s;
+    }
 
+    input[type="text"]:focus {
+      -webkit-appearance:none;
+      background-color:lighten(tomato, 5%);
+      border:2px solid black;
+      height:100px;
+      text-align:center;
+      font-size:30px;
+      outline:none;
+      transition:background-color 1s;
+      transition:border 1s;
+    }
+
+    input[type="text"]::-webkit-input-placeholder{
+      color:white;
+      border:none;
+    }
+
+    input[type="text"]::-webkit-input-placeholder::after{
+      content:'>';
+      color:black;
+      border:none;
+      font-weight:bold;
+      position:relative;
+      left:0;
+      transition:left 1s;
+    }
+
+    input[type="text"]::-webkit-input-placeholder::before{
+      content:'<';
+      color:black;
+      border:none;
+      font-weight:bold;
+      position:relative;
+      left:0;
+      transition:left 1s;
+    }
+
+    input[type="text"]:focus::-webkit-input-placeholder::after {
+      left:20px;
+      position:relative;
+      transition:left 1s;
+    }
+
+    input[type="text"]:focus::-webkit-input-placeholder::before {
+      left:-20px;
+      position:relative;
+      transition:left 1s;
+    }
+  }
+}
+.todos{
+  background: darken(antiquewhite, 10%);
+  @include span(23);
+  margin-left:2%;
+}
+#todo-count{
+  float: right;
+  margin-right: 7px;
+}
 #todo-list{
+  margin-top: .2em;
+  li{
+    list-style: none;
+    height: 45px;
+    border: none;
+  }
 	li.done label{
-		background: limegreen;
+		background: lightgreen;
 		text-decoration: line-through;
 	}
 	li.editing .edit {
@@ -26,4 +151,77 @@ body{
     li .edit {
 		display: none;
 	}
+  #inline-edit{
+    .edit{
+      background: darken(antiquewhite, 15%);
+      width: span(22);
+      -webkit-box-shadow: 0px 1px 30px 0px rgba(145, 145, 145, 1);
+      -moz-box-shadow:    0px 1px 30px 0px rgba(145, 145, 145, 1);
+      box-shadow:         0px 1px 30px 0px rgba(145, 145, 145, 1);
+      border: none;
+      height: 40px;
+      padding-left: 10px;
+    }
+  }
+}
+
+button.destroy{
+  float: right;
+  margin-right: 8px;
+  background:none!important;
+  border:none;
+  padding:0!important;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  &:hover{
+    cursor: pointer;
+    color: tomato;
+  }
+}
+
+button#clearTodo{
+  background: tomato;
+  color: antiquewhite;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  border: none;
+  @include span(9);
+  @include pre(8);
+  margin-top: 0;
+  &:hover{
+    cursor: pointer;
+    background: antiquewhite;
+    color: tomato;
+  }
+
+
+}
+
+button#google{
+  background: tomato;
+  font-size: 1.5em;
+  color: antiquewhite;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  border: 2px solid transparent;
+  position: absolute;
+  top: 44%;
+  left: 42%;
+  &:hover{
+    cursor: pointer;
+    background: antiquewhite;
+    color: tomato;
+    border-color: tomato;
+  }
+}
+
+.hint{
+  text-align: center;
+  opacity: 0.7;
+  font-size: 0.7em;
+  margin-top: 0;
+  margin-bottom: 0;
 }

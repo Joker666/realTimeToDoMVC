@@ -2,7 +2,8 @@ var app = angular.module('todoMVC', [
   'ui.router',
   'ngAnimate',
   'ui.utils',
-  'satellizer'
+  'satellizer',
+  'ngFx'
 ]);
 app.config(function($authProvider){
     $authProvider.google({

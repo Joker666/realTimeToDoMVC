@@ -12,7 +12,6 @@ app.factory('TodoService', function($http, $q, CurrentUser){
           	// return $http.delete('/user/' + CurrentUser.id + '/todos/' + id);
         },
         update: function(id, description, done){
-            console.log(description + '  ' + done);
             if(description){
                 return $http.put('/todo/' + id, { description: description });
             } else {
