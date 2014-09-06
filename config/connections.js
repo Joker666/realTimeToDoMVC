@@ -63,7 +63,7 @@ module.exports.connections = {
     // user: 'username',
     // password: 'password',
      // database: 'todoMVC'
-     url: process.env.DB_URL
+     url: process.env.DB_URL || "mongodb://root:root@ds035250.mongolab.com:35250/sails_realtime_todo_mvc"
   },
 
   /***************************************************************************
