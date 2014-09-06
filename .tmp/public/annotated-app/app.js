@@ -7,7 +7,7 @@ var app = angular.module('todoMVC', [
 ]);
 app.config(['$authProvider', function($authProvider){
     $authProvider.google({
-        clientId: '1081450147778-b1mbec6ohg4ve6bj9615ofdd4bust91p.apps.googleusercontent.com'
+        clientId: '1081450147778-vhfd66man02n6r64um8fstgbgkf2asp8.apps.googleusercontent.com'
     });
 }]);
 
