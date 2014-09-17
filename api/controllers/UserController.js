@@ -7,14 +7,14 @@
 
 module.exports = {
 	'me': function(req, res){
-		User.findById(req.userID, function foundUser(err, user){
+		User.findById(req.userID, function(err, user){
 			res.send(user);
 		});
 	},
 
 
 	subscribe: function(req, res){
-	  User.find({}).exec(function foundTodos(err, users){
+	  User.find({}).exec(function foundUsers(err, users){
 	    if(err) return next(err);
 	    User.watch(req.socket);
 	    User.subscribe(req.socket, users);

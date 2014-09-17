@@ -36,8 +36,10 @@ var jsFilesToInject = [
 
   // All of the rest of your client-side js files
   // will be injected here in no particular order.
-  'annotated-app/app.js',
-  'annotated-app/**/*.js'
+//  'annotated-app/app.js',
+//  'annotated-app/**/*.js'
+    'js/app.js',
+    'js/**/*.js'
 ];
 
 

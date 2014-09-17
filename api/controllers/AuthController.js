@@ -11,13 +11,10 @@ module.exports = {
     'google' : function(req, res){
         var accessTokenUrl = 'https://accounts.google.com/o/oauth2/token';
         var peopleApiUrl = 'https://www.googleapis.com/plus/v1/people/me/openIdConnect';
-        console.log(req.body.clientId);
         var params = {
-           client_id: req.body.clientId,
-            // client_id : '1081450147778-vhfd66man02n6r64um8fstgbgkf2asp8.apps.googleusercontent.com',
+            client_id: req.body.clientId,
             redirect_uri: req.body.redirectUri,
-            // client_secret: sails.config.local,
-            client_secret: 'DrZt_j1ZfLshKcOHS7tv5C73',
+            client_secret: sails.config.GOOGLE_SECRET,
             code: req.body.code,
             grant_type: 'authorization_code'
         };
@@ -78,6 +75,10 @@ module.exports = {
                 }
             });
         });
+    },
+
+    retrieveID: function(req, res){
+        res.send(sails.config.CLIENT_ID);
     }
 };
 

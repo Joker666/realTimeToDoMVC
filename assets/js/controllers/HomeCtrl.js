@@ -9,7 +9,8 @@ app.controller('HomeCtrl', function($scope, $auth, $state, $filter, Account, Cur
         CurrentUser.id = data[0].id;
         CurrentUser.email = data[0].email;
 
-
+        // .success(function(data, status, headers, config) {
+        // .then(function(payload) {
         TodoService.getAll().success(function(result) {
             $scope.todos = result;
 
@@ -25,7 +26,7 @@ app.controller('HomeCtrl', function($scope, $auth, $state, $filter, Account, Cur
 
     io.socket.get('/todo/subscribe');
     io.socket.on('todo', function (msg) {
-       switch(msg.verb) {
+        switch(msg.verb) {
             case 'created':
                 $scope.todos.push(msg.data);
                 $scope.$apply();
@@ -50,7 +51,7 @@ app.controller('HomeCtrl', function($scope, $auth, $state, $filter, Account, Cur
 
             default: return;
 
-       }
+        }
     });
 
     $scope.logout = function() {

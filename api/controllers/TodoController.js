@@ -7,7 +7,7 @@
 
 module.exports = {
  	subscribe: function(req, res){
- 	  Todo.find({}).exec(function foundTodos(err, todos){
+ 	  Todo.find({}).exec(function(err, todos){
  	    if(err) return next(err);
  	    Todo.watch(req.socket);
  	    Todo.subscribe(req.socket, todos);

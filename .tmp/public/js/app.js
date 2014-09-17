@@ -5,9 +5,27 @@ var app = angular.module('todoMVC', [
   'satellizer',
   'ngFx'
 ]);
-app.config(function($authProvider){
-    $authProvider.google({
-        clientId: '1081450147778-vhfd66man02n6r64um8fstgbgkf2asp8.apps.googleusercontent.com'
+
+app.provider('retrieve', function(){
+    return {
+        getClientId: function(){
+            var myInjector = angular.injector(["ng"]);
+            var $http = myInjector.get("$http");
+            return $http.get('/auth/retrieveID');
+        },
+        $get: function () {
+            return {
+                getClientId: getClientId
+            };
+        }
+    }
+});
+
+app.config(function($authProvider, retrieveProvider){
+    retrieveProvider.getClientId().success(function(data){
+        $authProvider.google({
+            clientId: data
+        });
     });
 });
 

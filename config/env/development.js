@@ -17,9 +17,9 @@ module.exports = {
    * environment (see config/connections.js and config/models.js )           *
    ***************************************************************************/
 
-  // models: {
-  //   connection: 'someMongodbServer'
-  // }
-
+  models: {
+     connection: 'mongoDev'
+  }
+//  GOOGLE_SECRET: process.env.GOOGLE_SECRET || 'kSHmiX1NB6bPmabEcyGrvwb5'
 
 };
