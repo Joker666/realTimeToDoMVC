@@ -58,18 +58,18 @@ module.exports.connections = {
   ***************************************************************************/
   mongoDev: {
     adapter: 'sails-mongo',
-    // host: 'localhost',
-    // port: 27017,
+    host: 'localhost',
+    port: 27017,
 //    user: 'username',
 //    password: 'password',
-    // database: 'todoMVC'
-    url: process.env.DB_URL
+    database: 'todoMVC'
+    // url: process.env.DB_URL
   },
 
   mongoProd: {
       adapter: 'sails-mongo',
-      // url: process.env.DB_URL
-      url: 'mongodb://root:root@ds035250.mongolab.com:35250/sails_realtime_todo_mvc'
+      url: process.env.DB_URL
+      // url: 'mongodb://root:root@ds035250.mongolab.com:35250/sails_realtime_todo_mvc'
   },
 
   /***************************************************************************
