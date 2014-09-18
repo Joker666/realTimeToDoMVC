@@ -25,14 +25,18 @@ module.exports = {
    * Set the port in the production environment to 80                        *
    ***************************************************************************/
 
-  port: 80,
+  port: process.env.PORT || 1337,
 
   /***************************************************************************
    * Set the log level in production environment to "silent"                 *
    ***************************************************************************/
 
   log: {
-    level: "info"
-  }
+    level: "verbose"
+  },
+
+    //keys
+    GOOGLE_SECRET: process.env.GOOGLE_SECRET || 'DrZt_j1ZfLshKcOHS7tv5C73',
+    CLIENT_ID: process.env.CLIENT_ID || '1081450147778-vhfd66man02n6r64um8fstgbgkf2asp8.apps.googleusercontent.com'
 
 };

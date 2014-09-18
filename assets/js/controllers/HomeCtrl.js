@@ -16,10 +16,10 @@ app.controller('HomeCtrl', function($scope, $auth, $state, $filter, Account, Cur
 
 
             $scope.$watch('todos', function () {
-              var remainingTodos = _.filter($scope.todos, { 'done': false });
-              $scope.remainingCount = remainingTodos.length;
-              $scope.completedCount = $scope.todos.length - $scope.remainingCount;
-              $scope.allChecked = !$scope.remainingCount;
+                var remainingTodos = _.filter($scope.todos, { 'done': false });
+                $scope.remainingCount = remainingTodos.length;
+                $scope.completedCount = $scope.todos.length - $scope.remainingCount;
+                $scope.allChecked = !$scope.remainingCount;
             }, true);
         });
     });
@@ -34,13 +34,13 @@ app.controller('HomeCtrl', function($scope, $auth, $state, $filter, Account, Cur
             case 'updated':
                 var haveToUpdate = _.find($scope.todos, { 'id': msg.id });
                 if(angular.isDefined(msg.data.done)){
-                  if(msg.data.done !== haveToUpdate.done){
-                      haveToUpdate.done = msg.data.done;
-                  }
+                    if(msg.data.done !== haveToUpdate.done){
+                        haveToUpdate.done = msg.data.done;
+                    }
                 } else if (angular.isDefined(msg.data.description)){
-                  if(msg.data.description !== haveToUpdate.description){
-                      haveToUpdate.description = msg.data.description;
-                  }
+                    if(msg.data.description !== haveToUpdate.description){
+                        haveToUpdate.description = msg.data.description;
+                    }
                 }
                 $scope.$apply();
                 break;
@@ -79,37 +79,37 @@ app.controller('HomeCtrl', function($scope, $auth, $state, $filter, Account, Cur
     };
 
     $scope.clearCompletedTodos = function () {
-      angular.forEach($scope.todos, function (todo) {
-        if (todo.done) {
-          TodoService.remove(todo.id).success(function(result) {});
-        }
-      });
+        angular.forEach($scope.todos, function (todo) {
+            if (todo.done) {
+              TodoService.remove(todo.id).success(function(result) {});
+            }
+        });
     };
 
     $scope.markAll = function (allChecked) {
-      angular.forEach($scope.todos, function (todo) {
-        todo.done = !allChecked;
-        TodoService.update(todo.id, null, todo.done).success(function(result) {});
-      });
+        angular.forEach($scope.todos, function (todo) {
+            todo.done = !allChecked;
+            TodoService.update(todo.id, null, todo.done).success(function(result) {});
+        });
     };
 
     $scope.editTodo = function (todo) {
-      $scope.editedTodo = todo;
-      $scope.originalTodo = angular.extend({}, todo);
+        $scope.editedTodo = todo;
+        $scope.originalTodo = angular.extend({}, todo);
     };
 
 
     $scope.doneEditing = function (todo) {
-      $scope.editedTodo = null;
-      if (todo.description) {
+        $scope.editedTodo = null;
+        if (todo.description) {
         TodoService.update(todo.id, todo.description, null).success(function(result) {});
-      } else {
+        } else {
         TodoService.remove(todo.id).success(function(result) {});
-      }
+        }
     };
 
     $scope.revertEditing = function (index) {
-      angular.extend($scope.todos[index], $scope.originalTodo);
-      $scope.editedTodo = null;
+        angular.extend($scope.todos[index], $scope.originalTodo);
+        $scope.editedTodo = null;
     };
 });
