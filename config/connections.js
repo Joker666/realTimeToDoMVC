@@ -68,8 +68,8 @@ module.exports.connections = {
 
   mongoProd: {
       adapter: 'sails-mongo',
-      url: process.env.DB_URL
-      // url: 'mongodb://root:root@ds035250.mongolab.com:35250/sails_realtime_todo_mvc'
+      // url: process.env.DB_URL
+      url: 'mongodb://root:root@ds035250.mongolab.com:35250/sails_realtime_todo_mvc'
   },
 
   /***************************************************************************

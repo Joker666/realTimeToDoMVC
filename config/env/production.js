@@ -25,7 +25,7 @@ module.exports = {
    * Set the port in the production environment to 80                        *
    ***************************************************************************/
 
-  port: process.env.PORT || 1337,
+  port: process.env.PORT || 5000,
 
   /***************************************************************************
    * Set the log level in production environment to "silent"                 *
@@ -36,8 +36,8 @@ module.exports = {
   },
 
     //keys
-    // DB_URL: process.env.DB_URL || 'mongodb://root:root@ds035250.mongolab.com:35250/sails_realtime_todo_mvc',
-    // GOOGLE_SECRET: process.env.GOOGLE_SECRET || 'kSHmiX1NB6bPmabEcyGrvwb5',
-    // CLIENT_ID: process.env.CLIENT_ID || '675547086019-cr33utqefoai0hmeaphr7eame3d1i5cn.apps.googleusercontent.com'
+    DB_URL: process.env.DB_URL || 'mongodb://root:root@ds035250.mongolab.com:35250/sails_realtime_todo_mvc',
+    GOOGLE_SECRET: process.env.GOOGLE_SECRET || 'DrZt_j1ZfLshKcOHS7tv5C73',
+    CLIENT_ID: process.env.CLIENT_ID || '1081450147778-vhfd66man02n6r64um8fstgbgkf2asp8.apps.googleusercontent.com'
 
 };
