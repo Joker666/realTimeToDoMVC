@@ -32,11 +32,12 @@ module.exports = {
    ***************************************************************************/
 
   log: {
-    level: "verbose"
+    level: "info"
   },
 
     //keys
-    GOOGLE_SECRET: process.env.GOOGLE_SECRET || 'DrZt_j1ZfLshKcOHS7tv5C73',
-    CLIENT_ID: process.env.CLIENT_ID || '1081450147778-vhfd66man02n6r64um8fstgbgkf2asp8.apps.googleusercontent.com'
+    // DB_URL: process.env.DB_URL || 'mongodb://root:root@ds035250.mongolab.com:35250/sails_realtime_todo_mvc',
+    // GOOGLE_SECRET: process.env.GOOGLE_SECRET || 'kSHmiX1NB6bPmabEcyGrvwb5',
+    // CLIENT_ID: process.env.CLIENT_ID || '675547086019-cr33utqefoai0hmeaphr7eame3d1i5cn.apps.googleusercontent.com'
 
 };

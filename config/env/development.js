@@ -19,7 +19,8 @@ module.exports = {
 
   models: {
      connection: 'mongoDev'
-  }
-//  GOOGLE_SECRET: process.env.GOOGLE_SECRET || 'kSHmiX1NB6bPmabEcyGrvwb5'
+  },
+	GOOGLE_SECRET: process.env.GOOGLE_SECRET || 'kSHmiX1NB6bPmabEcyGrvwb5',
+    CLIENT_ID: process.env.CLIENT_ID || '675547086019-cr33utqefoai0hmeaphr7eame3d1i5cn.apps.googleusercontent.com'
 
 };

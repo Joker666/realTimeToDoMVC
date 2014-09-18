@@ -1,4 +1,3 @@
-@import url(http://fonts.googleapis.com/css?family=Titillium+Web:400,600,300);
 /**
  * importer.less
  *
@@ -14,24 +13,40 @@
  * always omit, customize, or replace this behavior with SASS, SCSS,
  * or any other Grunt tasks you like.)
  */
+
+
+
+// For example:
+//
+// @import 'variables/colors.less';
+// @import 'mixins/foo.less';
+// @import 'mixins/bar.less';
+// @import 'mixins/baz.less';
+//
+// @import 'styleguide.less';
+// @import 'pages/login.less';
+// @import 'pages/signup.less';
+//
+// etc.
+
+@import url(http://fonts.googleapis.com/css?family=Titillium+Web:400,600,300);
 * {
   font-family: 'Titillium Web', sans-serif;
-  font-size: 1.1rem;
-}
+  font-size: 1.1rem; }
+
 body {
   max-width: 100%;
   margin-left: auto;
   margin-right: auto;
-  background: antiquewhite;
-}
+  background: antiquewhite; }
 body:after {
   content: " ";
   display: block;
-  clear: both;
-}
+  clear: both; }
+
 a {
-  text-decoration: none;
-}
+  text-decoration: none; }
+
 button#logout {
   float: right;
   margin-right: 7px;
@@ -43,20 +58,18 @@ button#logout {
   border-radius: 3px;
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-}
+  transition: all 0.3s ease-in-out; }
 button#logout:hover {
   background-color: antiquewhite;
   cursor: pointer;
   color: #009ac9;
-  border-color: #009ac9;
-}
+  border-color: #009ac9; }
+
 #wrapper {
   margin-top: 1%;
   position: absolute;
   width: 45.83333%;
-  left: 28%;
-}
+  left: 28%; }
 #wrapper .user-info img {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -68,8 +81,7 @@ button#logout:hover {
   padding-left: 0.41667%;
   padding-right: 0.41667%;
   border-radius: 50%;
-  border: 2px #ffffff solid;
-}
+  border: 2px #ffffff solid; }
 #wrapper .user-info p {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -81,8 +93,7 @@ button#logout:hover {
   padding-left: 0.41667%;
   padding-right: 0.41667%;
   text-align: center;
-  margin-top: 25%;
-}
+  margin-top: 25%; }
 #wrapper .todo-input input {
   margin-top: 31%;
   -moz-box-sizing: border-box;
@@ -92,8 +103,7 @@ button#logout:hover {
   float: left;
   padding-left: 0.41667%;
   padding-right: 0.41667%;
-  margin-left: 2%;
-}
+  margin-left: 2%; }
 #wrapper .todo-input input[type="text"] {
   -webkit-appearance: none;
   background-color: tomato;
@@ -104,8 +114,7 @@ button#logout:hover {
   box-sizing: border-box;
   border: 0px solid black;
   transition: background-color 1s;
-  transition: border 1s;
-}
+  transition: border 1s; }
 #wrapper .todo-input input[type="text"]:focus {
   -webkit-appearance: none;
   background-color: #ff7960;
@@ -115,12 +124,10 @@ button#logout:hover {
   font-size: 30px;
   outline: none;
   transition: background-color 1s;
-  transition: border 1s;
-}
+  transition: border 1s; }
 #wrapper .todo-input input[type="text"]::-webkit-input-placeholder {
   color: white;
-  border: none;
-}
+  border: none; }
 #wrapper .todo-input input[type="text"]::-webkit-input-placeholder::after {
   content: '>';
   color: black;
@@ -128,8 +135,7 @@ button#logout:hover {
   font-weight: bold;
   position: relative;
   left: 0;
-  transition: left 1s;
-}
+  transition: left 1s; }
 #wrapper .todo-input input[type="text"]::-webkit-input-placeholder::before {
   content: '<';
   color: black;
@@ -137,18 +143,16 @@ button#logout:hover {
   font-weight: bold;
   position: relative;
   left: 0;
-  transition: left 1s;
-}
+  transition: left 1s; }
 #wrapper .todo-input input[type="text"]:focus::-webkit-input-placeholder::after {
   left: 20px;
   position: relative;
-  transition: left 1s;
-}
+  transition: left 1s; }
 #wrapper .todo-input input[type="text"]:focus::-webkit-input-placeholder::before {
   left: -20px;
   position: relative;
-  transition: left 1s;
-}
+  transition: left 1s; }
+
 .todos {
   background: #f4d4aa;
   -moz-box-sizing: border-box;
@@ -158,33 +162,27 @@ button#logout:hover {
   float: left;
   padding-left: 0.41667%;
   padding-right: 0.41667%;
-  margin-left: 2%;
-}
+  margin-left: 2%; }
+
 #todo-count {
   float: right;
-  margin-right: 7px;
-}
+  margin-right: 7px; }
+
 #todo-list {
-  margin-top: .2em;
-}
+  margin-top: .2em; }
 #todo-list li {
   list-style: none;
   height: 45px;
-  border: none;
-}
+  border: none; }
 #todo-list li.done label {
   background: lightgreen;
-  text-decoration: line-through;
-}
+  text-decoration: line-through; }
 #todo-list li.editing .edit {
-  display: block;
-}
+  display: block; }
 #todo-list li.editing .view {
-  display: none;
-}
+  display: none; }
 #todo-list li .edit {
-  display: none;
-}
+  display: none; }
 #todo-list #inline-edit .edit {
   background: #f1c993;
   width: 91.66667%;
@@ -193,8 +191,8 @@ button#logout:hover {
   box-shadow: 0px 1px 30px 0px #919191;
   border: none;
   height: 40px;
-  padding-left: 10px;
-}
+  padding-left: 10px; }
+
 button.destroy {
   float: right;
   margin-right: 8px;
@@ -203,12 +201,11 @@ button.destroy {
   padding: 0 !important;
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-}
+  transition: all 0.3s ease-in-out; }
 button.destroy:hover {
   cursor: pointer;
-  color: tomato;
-}
+  color: tomato; }
+
 button#clearTodo {
   background: tomato;
   color: antiquewhite;
@@ -224,13 +221,12 @@ button#clearTodo {
   padding-left: 0.41667%;
   padding-right: 0.41667%;
   margin-left: 33.33333%;
-  margin-top: 0;
-}
+  margin-top: 0; }
 button#clearTodo:hover {
   cursor: pointer;
   background: antiquewhite;
-  color: tomato;
-}
+  color: tomato; }
+
 button#google {
   background: tomato;
   font-size: 1.5em;
@@ -241,18 +237,16 @@ button#google {
   border: 2px solid transparent;
   position: absolute;
   top: 44%;
-  left: 42%;
-}
+  left: 42%; }
 button#google:hover {
   cursor: pointer;
   background: antiquewhite;
   color: tomato;
-  border-color: tomato;
-}
+  border-color: tomato; }
+
 .hint {
   text-align: center;
   opacity: 0.7;
   font-size: 0.7em;
   margin-top: 0;
-  margin-bottom: 0;
-}
+  margin-bottom: 0; }
